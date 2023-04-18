@@ -1,0 +1,40 @@
+metadata:
+  name: postgres
+  desc: postgres db
+  tags:
+    - db
+    - database
+  version: 1.15.0
+  homepage: https://xxx.github.io/
+  author:
+    name: xxx
+    mail: xxx@yyy.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 1024M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+  - config/redis.conf
+
+ports:
+  postgres:
+    ip: 127.0.0.1
+    port: 5432
+    desc: redis
+
+variables:
+  password: 
+    name: postgres 的初始化密码
+    desc: postgres 的初始化密码, 请注意密码的复杂度
+    value: your-secret
+  db:
+    name: postgres db
+    desc: postgres db
+    value: your-db
