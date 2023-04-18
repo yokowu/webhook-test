@@ -1,0 +1,40 @@
+metadata:
+  name: mysql
+  desc: mysql db
+  tags:
+    - db
+    - database
+  version: 1.1.0
+  homepage: https://xxx.github.io/
+  author:
+    name: xxx
+    mail: xxx@yyy.com
+  resource:
+    limit:
+      cpu: 1
+      memory: 1024M
+      disk: 1G
+    recommand:
+      cpu: 2
+      memory: 2048M
+      disk: 2G
+
+templates:
+  - docker-compose.yaml
+  - config/redis.conf
+
+ports:
+  mysql:
+    ip: 127.0.0.1
+    port: 5432
+    desc: redis
+
+variables:
+  password: 
+    name: mysql 的初始化密码
+    desc: mysql 的初始化密码, 请注意密码的复杂度
+    value: your-secret
+  db:
+    name: mysql db
+    desc: mysql db
+    value: your-db
