@@ -1,5 +1,7 @@
 # webhook-test
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## 项目简介
 
 webhook-test 是一个用于测试和验证 Webhook 功能的简单工具。它可以帮助开发者快速搭建和测试 Webhook 接收端，验证各种 Webhook 事件的处理逻辑。
@@ -33,7 +35,7 @@ webhook-test 是一个用于测试和验证 Webhook 功能的简单工具。它�
 
 1. 克隆项目仓库：
    ```bash
-   git clone https://github.com/your-username/webhook-test.git
+   git clone https://github.com/yokowu/webhook-test.git
    ```
 
 2. 进入项目目录：
@@ -71,6 +73,18 @@ webhook-test 是一个用于测试和验证 Webhook 功能的简单工具。它�
 3. 发送 Webhook 请求，可以在控制台查看接收到的数据
 4. 根据需要自定义响应处理逻辑
 5. 如需使用数据库功能，请根据 `mysql/`、`postgres/` 和 `redis/` 目录中的配置模板进行相应配置
+
+### 示例
+
+发送一个测试 Webhook 请求：
+
+```bash
+curl -X POST http://localhost:3000/webhook \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Hello, webhook!"}'
+```
+
+服务端会打印接收到的数据，并返回默认响应。
 
 ## 配置选项
 
