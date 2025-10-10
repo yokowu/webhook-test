@@ -1,6 +1,9 @@
 # webhook-test
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Node.js CI](https://github.com/yokowu/webhook-test/workflows/Node.js%20CI/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/yokowu/webhook-test/badge.svg?branch=main)](https://coveralls.io/github/yokowu/webhook-test?branch=main)
+[![NPM Version](https://img.shields.io/npm/v/webhook-test.svg)](https://www.npmjs.com/package/webhook-test)
 
 ## 项目简介
 
@@ -66,6 +69,24 @@ webhook-test 是一个用于测试和验证 Webhook 功能的简单工具。它�
    yarn start
    ```
 
+## API 文档
+
+### Webhook 接收端点
+
+- `POST /webhook` - 接收 Webhook 事件
+  - 请求体：JSON 格式的 Webhook 数据
+  - 响应：默认返回 `{ "status": "received" }`
+  
+### 配置端点
+
+- `GET /config` - 获取当前配置信息
+- `POST /config` - 更新配置（需要认证）
+  
+### 状态端点
+
+- `GET /status` - 获取服务运行状态
+- `GET /health` - 健康检查端点
+
 ## 使用方法
 
 1. 启动服务后，默认监听端口为 3000
@@ -110,6 +131,24 @@ curl -X POST http://localhost:3000/webhook \
 ### PostgreSQL
 - 配置文件位于 `postgres/manifest.yaml`
 - 相关配置参数位于 `postgres/conf/pg.conf`
+
+## 故障排除
+
+### 常见问题
+
+1. **Webhook 未被接收**
+   - 检查服务是否正在运行
+   - 验证 Webhook URL 是否正确
+   - 查看服务日志以获取更多信息
+
+2. **数据库连接失败**
+   - 确认数据库服务已启动
+   - 检查数据库配置是否正确
+   - 验证网络连接和防火墙设置
+
+3. **端口冲突**
+   - 修改 `PORT` 环境变量使用其他端口
+   - 检查是否有其他进程占用了指定端口
 
 ## 贡献指南
 
